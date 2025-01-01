@@ -1,0 +1,35 @@
+[all]
+R1 ansible_host=10.1.10.11
+R2 ansible_host=10.1.10.12
+R3 ansible_host=10.1.10.13
+R4 ansible_host=10.1.10.14
+R5 ansible_host=10.1.10.15
+R6 ansible_host=10.1.10.16
+R8 ansible_host=10.1.10.18
+
+xr-sandbox ansible_host=sandbox-iosxr-1.cisco.com
+XRv779K3R10 ansible_host=10.1.10.10
+
+[CSR1000]
+R1
+R2
+R3
+
+[XRv]
+xr-sandbox
+XRv779K3R10
+
+[CSR8000v]
+R8
+
+[CSR1000:vars]
+ansible_connection=network_cli
+ansible_network_os=ios
+ansible_user=cisco
+ansible_password=cisco
+
+[XRv:vars]
+ansible_connection=network_cli
+ansible_network_os=iosxr
+ansible_user=admin
+ansible_password=C1sco12345

@@ -1,0 +1,25 @@
+(.vAnsible) sushil@sushil:~/Ansible$ ansible CSR1000 -m ping -i ~/Ansible/hosts
+R2 | SUCCESS => {
+    "changed": false,
+    "ping": "pong"
+}
+R1 | SUCCESS => {
+    "changed": false,
+    "ping": "pong"
+}
+R3 | SUCCESS => {
+    "changed": false,
+    "ping": "pong"
+}
+(.vAnsible) sushil@sushil:~/Ansible$ ansible R1 -m ping -i ~/Ansible/hosts -u cisco -k
+SSH password: 
+R1 | SUCCESS => {
+    "changed": false,
+    "ping": "pong"
+}
+
+####################
+(.vAnsible) sushil@sushil:~/Ansible$ ansible-playbook iosxe_interfaces.yml -i ~/Ansible/hosts -vvvv
+
+#####################
+(.vAnsible) sushil@sushil:~/Ansible$ ansible-playbook iosxe_interfaces.yml -i ~/Ansible/hosts --syntax-check

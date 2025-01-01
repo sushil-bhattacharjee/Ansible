@@ -1,0 +1,14 @@
+---
+- hosts: CSR1000
+  name: Verify Interfaces on Cisco IOS XE
+  connection: network_cli   
+  tasks:
+    - name: Display interfaces on Cisco IOS XE
+      ios_command:
+        commands: show ip interface brief
+      register: output
+
+    - name: Print interfaces on Cisco IOS XE
+      debug:
+        msg: >
+          {{ output.stdout_lines[0] | join('\n') }}
